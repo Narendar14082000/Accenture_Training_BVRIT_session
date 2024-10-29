@@ -1,5 +1,7 @@
 # Accenture_Training_BVRIT_session
 
+# **01.Rat Count**
+
 ```
 import java.util.*;  // Importing the necessary library for Scanner and other utilities.
 
@@ -83,3 +85,4 @@ class Main {
   }
 }
 ```
+# **02.Password Checker**
