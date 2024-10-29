@@ -128,3 +128,47 @@ class Main {  // Define the Main class
 }
 
 ```
+
+# **Switch program**
+```
+import java.util.*;
+
+class Main {
+
+    // Function to count the exponents of 2 for a given number 'i'
+    public static int count(int i) {
+        int count = 0;
+        // Keep dividing the number by 2 as long as it's divisible by 2
+        while (i % 2 == 0 && i != 0) {
+            count += 1;  // Increment the exponent counter
+            i = i / 2;   // Divide the number by 2
+        }
+        return count;  // Return the total count of 2's in the factorization of 'i'
+    }
+
+    // Function to find the number with the maximum exponent of 2 between 'a' and 'b'
+    public static int maxExponents(int a, int b) {
+        int max = 0, num = 0;  // Initialize variables to track max exponent and the corresponding number
+        // Iterate through all numbers between 'a' and 'b'
+        for (int i = a; i <= b; i++) {
+            int temp = count(i);  // Count the exponents of 2 for the current number
+            // If the current number has more exponents of 2, update the max
+            if (temp > max) {
+                max = temp;  // Update the max exponent value
+                num = i;     // Update the number corresponding to the max exponent
+            }
+        }
+        return num;  // Return the number with the maximum exponent of 2
+    }
+
+    // Main method to take input and call the maxExponents function
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);  // Create Scanner object for input
+        int a = sc.nextInt();  // Input lower bound of the range
+        int b = sc.nextInt();  // Input upper bound of the range
+
+        // Print the result of maxExponents function
+        System.out.println(maxExponents(a, b));
+    }
+}
+```
