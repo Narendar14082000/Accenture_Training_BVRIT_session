@@ -86,3 +86,45 @@ class Main {
 }
 ```
 # **02.Password Checker**
+
+# **Carry**
+```
+import java.util.*;  // Import the Java utilities package for Scanner class
+
+class Main {  // Define the Main class
+
+  // Function to calculate the number of carry operations when adding two numbers
+  public static int numberOfCarries(int num1, int num2) {
+    int count = 0, carry = 0;  // Initialize carry count and carry flag
+
+    // Loop until both numbers have been processed (no more digits left)
+    while (num1 > 0 || num2 > 0) {
+      int d1 = num1 % 10;  // Get the last digit of num1
+      int d2 = num2 % 10;  // Get the last digit of num2
+
+      // Check if adding these digits (including carry from previous addition) exceeds 9
+      if (d1 + d2 + carry > 9) {
+        count++;        // Increment carry count if there is a carry
+        carry = 1;      // Set carry to 1 for the next higher place
+      } else {
+        carry = 0;      // No carry needed for the next place
+      }
+
+      num1 /= 10;  // Remove the last digit of num1 to move to the next higher place
+      num2 /= 10;  // Remove the last digit of num2 to move to the next higher place
+    }
+
+    return count;  // Return the total number of carry operations
+  }
+
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);  // Create a Scanner object for user input
+
+    int num1 = sc.nextInt();  // Read the first integer from user input
+    int num2 = sc.nextInt();  // Read the second integer from user input
+
+    System.out.println(numberOfCarries(num1, num2));  // Output the number of carries
+  }
+}
+
+```
